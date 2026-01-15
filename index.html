@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Tournament Stats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-branding">
+            <img src="logo.jpg" alt="TFA Logo" class="tfa-logo">
+            <h1>Tuhfa Football Association (TFA)</h1>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showSection('standings')">Standings</button>
+            <button class="tab" onclick="showSection('fixtures')">Fixtures</button>
+            <button class="tab" onclick="showSection('players')">Player Stats</button>
+            <button class="tab" onclick="showSection('topscorers')">Top Scorers</button>
+        </div>
+
+        <div class="content">
+            <!-- Standings Section -->
+            <div id="standings" class="section active">
+                <h2>League Standings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Team</th>
+                            <th>P</th>
+                            <th>W</th>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>GF</th>
+                            <th>GA</th>
+                            <th>GD</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standingsTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Fixtures Section -->
+            <div id="fixtures" class="section">
+                <h2>Match Fixtures</h2>
+                <div class="fixtures-list" id="fixturesList"></div>
+                <div class="results-section">
+                    <h3>Recent Match Results</h3>
+                    <div id="resultsList" class="fixtures-list">
+                        <!-- Results with scorers will be dynamically loaded here, similar to ISL style -->
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Player Stats Section -->
+            <div id="players" class="section">
+                <h2>Player Statistics</h2>
+                <div class="team-filter">
+                    <label>Filter by Team: </label>
+                    <select id="teamFilter" onchange="filterPlayers()">
+                        <option value="all">All Teams</option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>Yellow Cards</th>
+                            <th>Red Cards</th>
+                            <th>Matches</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playersTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Top Scorers Section -->
+            <div id="topscorers" class="section">
+                <h2>Top Scorers</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Golden Boot Leader</div>
+                        <div class="stat-value" id="topScorer">-</div>
+                        <div class="stat-label" id="topScorerGoals">0 goals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Most Assists</div>
+                        <div class="stat-value" id="topAssist">-</div>
+                        <div class="stat-label" id="topAssistCount">0 assists</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Goals</div>
+                        <div class="stat-value" id="totalGoals">0</div>
+                        <div class="stat-label">In Tournament</div>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scorersTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Top Scorers Section -->
+            <div id="topscorers" class="section">
+                <h2>Top Scorers</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Golden Boot Leader</div>
+                        <div class="stat-value" id="topScorer">-</div>
+                        <div class="stat-label" id="topScorerGoals">0 goals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Most Assists</div>
+                        <div class="stat-value" id="topAssist">-</div>
+                        <div class="stat-label" id="topAssistCount">0 assists</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Goals</div>
+                        <div class="stat-value" id="totalGoals">0</div>
+                        <div class="stat-label">In Tournament</div>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scorersTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
